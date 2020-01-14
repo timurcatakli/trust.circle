@@ -8,6 +8,11 @@
   ],
   "parser": "babel-eslint",
   "rules": {
+    "global-require": ["off"],
+    "import/no-extraneous-dependencies": [
+      "off",
+      { "devDependencies": false, "optionalDependencies": false, "peerDependencies": false }
+    ],
     "import/no-unresolved": "off",
     "react/jsx-filename-extension": [
       1,
