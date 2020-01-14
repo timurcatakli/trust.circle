@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     borderColor: config.components.button.secondaryColor,
     borderWidth: 1,
     borderStyle: 'solid',
-    backgroundColor: 'transparent',
+    backgroundColor: 'white',
     width: '100%',
   },
 });

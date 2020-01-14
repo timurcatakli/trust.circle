@@ -1,66 +1,102 @@
 import React from 'react';
-import { View, Image, Text, SafeAreaView, Dimensions } from 'react-native';
-import ButtonTc from '../shared/components/Button';
+import { View, Image, Text, SafeAreaView, Dimensions, ImageBackground } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
+import Button from '../shared/components/Button';
+import Logo from '../shared/components/Logo';
 
 export default function Welcome() {
   const screenWidth = Math.round(Dimensions.get('window').width);
   return (
-    <SafeAreaView style={{ flex: 1, display: 'flex' }}>
-      <View style={{ justifyContent: 'center' }}>
-        <Image
-          source={require('../assets/media/launch.jpeg')}
-          style={{
-            backgroundColor: 'red',
-            width: screenWidth,
-            height: screenWidth / 1.5,
-          }}
-        />
-      </View>
-      <View
+    <ImageBackground
+      source={require('../assets/media/launch.jpg')}
+      style={{ width: '100%', height: '100%' }}
+    >
+      <LinearGradient
+        colors={['rgba(148, 160, 162, 0.5)', 'rgba(148, 160, 162, 0)']}
         style={{
-          paddingLeft: 20,
-          paddingRight: 20,
-          flex: 1,
-          justifyContent: 'center',
+          position: 'absolute',
+          left: 0,
+          right: 0,
+          top: 0,
+          height: '100%',
         }}
       >
-        <Text
+        <View
           style={{
-            fontSize: 48,
-            fontWeight: 'bold',
-            color: '#3E9dff',
-            fontFamily: 'American Typewriter',
+            flex: 3,
+            justifyContent: 'center',
+            alignItems: 'center',
+            paddingLeft: '10%',
+            paddingRight: '10%',
           }}
         >
-          trust.circle
-        </Text>
-        <View style={{ marginVertical: '4%' }} />
-        <Text
+          <View
+            style={{
+              backgroundColor: 'rgba(255, 255, 255, 0.9)',
+              justifyContent: 'center',
+              alignItems: 'center',
+              paddingLeft: '10%',
+              paddingRight: '10%',
+              paddingTop: '20%',
+              paddingBottom: '4%',
+              borderRadius: 12,
+              flexDirection: 'column',
+              shadowColor: '#000',
+              shadowOffset: {
+                width: 0,
+                height: 5,
+              },
+              shadowOpacity: 0.36,
+              shadowRadius: 6.68,
+              elevation: 11,
+            }}
+          >
+            <Logo />
+            <View style={{ marginVertical: 6 }} />
+            <Text
+              style={{
+                fontSize: 36,
+                fontWeight: 'bold',
+                color: '#3E9dff',
+                fontFamily: 'American Typewriter',
+              }}
+            >
+              trust.circle
+            </Text>
+            <View style={{ marginVertical: 6 }} />
+            <Text
+              style={{
+                lineHeight: 24,
+                fontSize: 16,
+                fontWeight: '100',
+                color: '#94a0a2',
+                fontFamily: 'Futura',
+                textAlign: 'center',
+              }}
+            >
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam a auctor ipsum.
+            </Text>
+          </View>
+        </View>
+        <View
           style={{
-            lineHeight: 24,
-            fontSize: 16,
-            fontWeight: '100',
-            color: '#94a0a2',
-            fontFamily: 'Futura',
+            flex: 1,
+            alignContent: 'center',
+            justifyContent: 'center',
           }}
         >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam a auctor ipsum. Phasellus
-          in risus elit. Cras porttitor vestibulum neque, et luctus orci egestas cursus. Sed tempor
-          purus urna, at posuere orci ultricies ac.
-        </Text>
-      </View>
-
-      <View
-        style={{
-          paddingLeft: 20,
-          paddingRight: 20,
-          paddingBottom: 20,
-        }}
-      >
-        <ButtonTc type="primary">Button Primary</ButtonTc>
-        <View style={{ marginVertical: 6 }} />
-        <ButtonTc type="secondary">Button secondary</ButtonTc>
-      </View>
-    </SafeAreaView>
+          <View
+            style={{
+              paddingLeft: '10%',
+              paddingRight: '10%',
+            }}
+          >
+            <Button type="primary">Register</Button>
+            <View style={{ marginVertical: 6 }} />
+            <Button type="secondary">Login</Button>
+          </View>
+        </View>
+      </LinearGradient>
+    </ImageBackground>
   );
 }
